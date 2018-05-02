@@ -6,6 +6,15 @@ git_source(:github) do |repo_name|
 end
 
 
+
+# Added Gems
+gem 'stripe', '~> 3.13'
+gem 'shrine', '~> 2.11'
+gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'faker', '~> 1.8', '>= 1.8.7'
+gem 'country_select', '~> 3.1', '>= 3.1.1'
+gem 'geocoder', '~> 1.4', '>= 1.4.7'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
@@ -39,6 +48,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
