@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503005400) do
+ActiveRecord::Schema.define(version: 20180503011535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pickup_requests", force: :cascade do |t|
+    t.string "pickup_address"
+    t.text "description"
+    t.text "image_data"
+    t.string "delivery_address"
+    t.decimal "payment_amount"
+    t.decimal "stripe_charge_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pickup_requests_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
@@ -34,6 +47,17 @@ ActiveRecord::Schema.define(version: 20180503005400) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "user_to_pickups", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "pickup_request_id"
+    t.datetime "response_at"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pickup_request_id"], name: "index_user_to_pickups_on_pickup_request_id"
+    t.index ["user_id"], name: "index_user_to_pickups_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,5 +75,8 @@ ActiveRecord::Schema.define(version: 20180503005400) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pickup_requests", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "user_to_pickups", "pickup_requests"
+  add_foreign_key "user_to_pickups", "users"
 end
