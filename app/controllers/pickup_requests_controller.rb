@@ -1,6 +1,6 @@
 class PickupRequestsController < ApplicationController
     def index
-        @pickup_requests = PickupRequests.all
+        @pickup_requests = PickupRequest.all
       end
   
       def new
