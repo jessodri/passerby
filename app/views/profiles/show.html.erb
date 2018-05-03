@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image data:</strong>
+  <%= image_tag @profile.image_data, width: 200 %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.first_name %>
+    <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @profile.bio %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @profile.address_line_one %>
+    <%= @profile.address_line_two %>
+    <%= @profile.city %>
+    <%= @profile.state %>
+    <%= @profile.postcode %>
+    <%= @profile.country_code %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_path(@profile) %> |
