@@ -7,8 +7,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @profile.first_name %>
-    <%= @profile.last_name %>
+  <%= @profile.full_name %>
 </p>
 
 <p>
@@ -18,14 +17,10 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @profile.address_line_one %>
-    <%= @profile.address_line_two %>
-    <%= @profile.city %>
-    <%= @profile.state %>
-    <%= @profile.postcode %>
-    <%= @profile.country_code %>
-
+  <%= @profile.full_address %>
 </p>
 
+<%= google_map_image_tag(@profile) %>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
+
+<%= link_to 'Edit', edit_profile_path(@profile) %><br>

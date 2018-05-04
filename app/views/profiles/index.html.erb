@@ -4,11 +4,11 @@
 
 <% @profiles.each do |profile| %>
 <br>
-    <%= profile.first_name %><br>
+    <%= profile.first_name %>
     <%= profile.last_name %><br>
-    <%= profile.image_data %>
-    <%= link_to 'Show', @profile %>
-    <%#= link_to 'Edit', edit_profile_path(@profile) %>
-    <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-<% end %>
+    <%= image_tag profile.image_data, width: 200 %><br>
+    <%= link_to 'Show', profile_path(profile) %><br>
+    <%= link_to 'Edit', edit_profile_path(profile) %><br>
+    <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %><br>
 
