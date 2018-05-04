@@ -8,6 +8,8 @@ end
 
 
 # Added Gems
+gem "image_processing", "~> 1.0"
+
 gem 'stripe', '~> 3.13'
 gem 'shrine', '~> 2.11'
 gem 'devise', '~> 4.4', '>= 4.4.3'

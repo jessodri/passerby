@@ -30,8 +30,9 @@
 <br>
 
 <div class="field">
-    <%= form.label :profile_photo %>
-    <%= form.file_field :image_data %>
+    <%= form.label :image %>
+    <%= form.hidden_field :image, value: profile.cached_image_data %>
+    <%= form.file_field :image %>
 </div>
 
 <div class="field">
