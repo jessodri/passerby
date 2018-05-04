@@ -1,11 +1,13 @@
 class Profile < ApplicationRecord
+
   belongs_to :user
+  validates :user, presence: true
+
   validates(
     :first_name,
     :last_name,
     :bio,
     :address_line_one,
-    :address_line_two,
     :city,
     :state,
     :postcode,
