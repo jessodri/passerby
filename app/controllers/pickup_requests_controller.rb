@@ -12,7 +12,7 @@ class PickupRequestsController < ApplicationController
       end
     
       def create
-        @pickup_request = PickupRequest.create(params.require(:profile).permit(:first_name, :last_name, :bio, :image_data, :address_line_one, :address_line_two, :city, :state, :postcode, :country_code))
+        @pickup_request = PickupRequest.create(params.require(:pickup_request).permit(:first_name, :last_name, :bio, :image_data, :address_line_one, :address_line_two, :city, :state, :postcode, :country_code))
         @pickup_request.user = current_user
         @pickup_request.save!
         redirect_to pickup_requests_path
