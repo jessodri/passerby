@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get '/tables', to: 'tables#all_tables'
-
-  get '/tables/table/:table_name', to: 'tables#table', as: 'table'
 
   root 'pages#home'
 
