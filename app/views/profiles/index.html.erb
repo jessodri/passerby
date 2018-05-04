@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profiles</h1>
+
+<% @profiles.each do |profile| %>
+<br>
+    <%= profile.first_name %><br>
+    <%= profile.last_name %><br>
+    <%= profile.image_data %>
+    <%= link_to 'Show', @profile %>
+    <%#= link_to 'Edit', edit_profile_path(@profile) %>
+    <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+
