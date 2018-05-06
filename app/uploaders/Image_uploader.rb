@@ -28,6 +28,7 @@ class ImageUploader < Shrine
   
       { original: io, thumb: size_80, medium: size_300 }
     end
+
   end
 
 

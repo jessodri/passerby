@@ -19,7 +19,7 @@ gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 gem 'geocoder', '~> 1.4', '>= 1.4.7'
 gem 'pundit', '~> 1.1'
-gem 'aws-sdk'
+gem "aws-sdk-s3", "~> 1.2" # for AWS S3 storage
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
