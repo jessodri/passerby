@@ -3,12 +3,12 @@ require "image_processing/mini_magick"
 class ImageUploader < Shrine
     include ImageProcessing::MiniMagick
   
-    plugin :activerecord
-    plugin :determine_mime_type
-    plugin :logging, logger: Rails.logger
-    plugin :remove_attachment
-    plugin :store_dimensions
-    plugin :validation_helpers
+    # plugin :activerecord
+    # plugin :determine_mime_type
+    # plugin :logging, logger: Rails.logger
+    # plugin :remove_attachment
+    # plugin :store_dimensions
+    # plugin :validation_helpers
     plugin :versions, names: [:original, :thumb, :medium]
     plugin :processing
     plugin :delete_raw # delete processed files after uploading
