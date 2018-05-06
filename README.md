@@ -1,6 +1,6 @@
 # Rails Project
 
-<link to website>
+<https://passerby-app.herokuapp.com/>
 [GitHub Repository](https://github.com/jessodri/passerby)
 
 Passerby is a two sided marketplace for people to arrange pick-up and delivery of items they have purchased or for them to pick-up and deliver an item/s for someone else. 
