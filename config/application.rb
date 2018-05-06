@@ -6,6 +6,7 @@ require "image_processing"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module Passerby
   class Application < Rails::Application
