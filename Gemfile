@@ -6,10 +6,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'dotenv-rails', require: 'dotenv/rails-now'
-
 # Added Gems
 gem "image_processing", "~> 1.0"
 gem 'fastimage'
