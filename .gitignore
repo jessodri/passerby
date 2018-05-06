@@ -20,3 +20,6 @@
 
 .env
 .env.development
+
+# Ignore public/uploads (shrine uploaded files)
+/public/uploads/
