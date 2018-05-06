@@ -6,7 +6,8 @@
 <br>
     <%= profile.first_name %>
     <%= profile.last_name %><br>
-    <%= image_tag profile.image_data, width: 200 %><br>
+    <%= image_tag profile.image_url(:original) %>
+
     <%= link_to 'Show', profile_path(profile) %><br>
     <%= link_to 'Edit', edit_profile_path(profile) %><br>
     <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
