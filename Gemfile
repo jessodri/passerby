@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -19,7 +19,7 @@ gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 gem 'geocoder', '~> 1.4', '>= 1.4.7'
 gem 'pundit', '~> 1.1'
-
+gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
