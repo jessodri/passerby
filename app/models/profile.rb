@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  include ImageUploader[:image]
+  include ImageUploader::Attachment.new(:image)
 
   belongs_to :user
   validates :user, presence: true
