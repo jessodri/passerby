@@ -18,8 +18,10 @@
 
 .byebug_history
 
-/.env
-/.env.development
+
+# Ignore environment variables
+.env
+.env.* 
 
 # Ignore public/uploads (shrine uploaded files)
 /public/uploads/
