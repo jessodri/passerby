@@ -1,5 +1,5 @@
 class PickupRequestsController < ApplicationController
-  before_action :set_pickup_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_pickup_request, only: [:show, :accept, :edit, :update, :destroy]
 
 
       def index
@@ -13,6 +13,12 @@ class PickupRequestsController < ApplicationController
 
       def show
       end
+
+      def accept
+        if params[:accept] == "activated"
+        else
+        end
+      end
     
       def create
         # binding.pry
@@ -20,6 +26,7 @@ class PickupRequestsController < ApplicationController
         @pickup_request.user = current_user
         @pickup_request.delivery_address = current_user.profile.partial_address
         @pickup_request.save!
+
         redirect_to pickup_requests_path
         # item = Item.new
       end

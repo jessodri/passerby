@@ -8,7 +8,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :profiles
-  resources :pickup_requests
+
+  resources :pickup_requests do
+    member do
+      patch :accept 
+    end
+  end
+
   resources :conversations do
     resources :messages
   end

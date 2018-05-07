@@ -30,7 +30,7 @@
 
     <p>
       <strong>User:</strong>
-      <%= @pickup_request.user.profile.full_name %>
+      <%= link_to @pickup_request.user.profile.full_name, @pickup_request.user.profile %><br>
     </p>
   </div>
 </div>
@@ -38,7 +38,11 @@
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
 
   <div type="button" class="btn">
-    <%= link_to 'Accept Request', conversations_path({ :pickup_request_id => @pickup_request} ), method: :create %> 
+    <%= link_to 'Accept Request', accept_pickup_request_path %>
+  </div>
+  <br>
+  <div type="button" class="btn">
+    <%= link_to 'Send Message', conversations_path({ :pickup_request_id => @pickup_request} ), method: :create %> 
   </div>
   <br>
   <div type="button" class="btn">
