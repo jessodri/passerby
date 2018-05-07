@@ -4,11 +4,13 @@
 
 <% @pickup_requests.each do |pickup| %>
 <br>
-    <%= pickup.first_name %>
-    <%= pickup.last_name %><br>
-    <%= image_tag profile.image_url(:thumb) unless profile.image.blank? %><br>
+    <%= pickup.description %>
+    <%= pickup.pickup_address %><br>
+    <%= pickup.delivery_address %><br>
+    <%= pickup.payment_amount %><br>
 
-    <%= link_to 'Show', profile_path(profile) %><br>
-    <%= link_to 'Edit', edit_profile_path(profile) %><br>
-    <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+    <%= link_to 'Show', pickup_request_path(pickup) %><br>
+    <%= link_to 'Edit', edit_pickup_request_path(pickup) %><br>
+    <%= link_to 'Destroy', pickup_request_path(pickup), method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <% end %><br>

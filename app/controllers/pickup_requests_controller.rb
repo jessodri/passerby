@@ -1,4 +1,7 @@
 class PickupRequestsController < ApplicationController
+  before_action :set_pickup_request, only: [:show, :edit, :update, :destroy]
+
+
     def index
         @pickup_requests = PickupRequest.all
       end
@@ -8,11 +11,10 @@ class PickupRequestsController < ApplicationController
       end
 
       def show
-        @pickup_request = PickupRequest.find(params[:id])
       end
     
       def create
-        @pickup_request = PickupRequest.create(params.require(:pickup_request).permit(:first_name, :last_name, :bio, :image_data, :address_line_one, :address_line_two, :city, :state, :postcode, :country_code))
+        @pickup_request = PickupRequest.create(pickup_request_params)
         @pickup_request.user = current_user
         @pickup_request.save!
         redirect_to pickup_requests_path
@@ -20,21 +22,32 @@ class PickupRequestsController < ApplicationController
       end
   
       def edit
-        @pickup_request = PickupRequest.find(params[:id])
       end
   
       def update
-        @pickup_request = PickupRequest.find(params[:id])
-        permitted_columns = params.require(:profile).permit(:first_name, :last_name, :bio, :image_data, :address_line_one, :address_line_two, :city, :state, :postcode, :country_code)
+        permitted_columns = pickup_request_params
         @pickup_request.update_attributes(permitted_columns)
         redirect_to pickup_request_path
       end
   
       def destroy
-        @pickup_request = PickupRequest.find(params[:id])
         @pickup_request.destroy
       
-        redirect_to profile_path, notice: "Delete success"    
+        redirect_to pickup_requests_path, notice: "Delete success"    
       end
-  
+      private
+
+    def set_pickup_request
+      @pickup_request = PickupRequest.find(params[:id])
+    end
+
+    def pickup_request_params
+      params.require(:pickup_request).permit([
+        :description, 
+        :pickup_address,
+        :delivery_address,
+        :payment_amount,
+        :image
+      ])
+    end
 end
