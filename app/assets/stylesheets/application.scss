@@ -21,7 +21,7 @@
     --main-color-two: #EAEAEA;
     --main-font: 'Open Sans', sans-serif;
 }
-body {
+html, body {
     background-color: var(--main-color-two);
     margin: 0;
     color: var(--main-color-one);
@@ -32,7 +32,7 @@ body {
 
 .nav {
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: auto;
     flex-direction: row;
     height: 140px;
@@ -65,12 +65,10 @@ body {
 
 .container {
     overflow: hidden;
-    width: 80vw;   
+    width: 100vw;   
     height: 100%;
     // display: flex;
     // flex-direction: column;
     // justify-content: flex-start;
     // align-items: center;
-    margin-top: 20px;
-    margin: auto;
 }
