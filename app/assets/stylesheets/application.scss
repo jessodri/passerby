@@ -139,10 +139,15 @@ h2 {
       }
   }
 
-  .field {
-    //   height: 80px;
-      .form-field {
-          height: 30px;
-          width: 90%;
-      }
+  .form {
+    width: 90%;
+    margin: auto;
   }
+      .field {
+          //   height: 80px;
+          .form-field {
+              height: 30px;
+              width: 90%;
+            }
+        }
+    

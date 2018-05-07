@@ -1,35 +1,33 @@
-<%= form_with(model: @pickup_request) do |form| %>
+<%= form_with(model: @pickup_request, class: "form",) do |form| %>
 
   <div class="field">
     <%= form.label :item_name %>
-    <%= form.text_field :item_name %>
+    <%= form.text_field :item_name, :class => "form-field" %>
   </div>
   <br>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, :class => "form-field" %>
   </div>
 <br>
 
   <div class="field">
     <%= form.label :image %>
     <%#= form.hidden_field :image, value: f.object.cached_image_data %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, :class => "form-field" %>
   </div>
   <br>
 
   <div class="field">
     <%= form.label :pickup_address %>
-    <%= form.text_field :pickup_address %>
+    <%= form.text_field :pickup_address, :class => "form-field" %>
   </div>
-<br>
-
 <br>
 
 <div class="field">
     <%= form.label :payment_amount %>
-    <%= form.number_field :payment_amount %>
+    <%= form.number_field :payment_amount, :class => "form-field" %>
 </div>
 
 <br>
