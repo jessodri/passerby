@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Item Image:</strong><br>
-    <p><%= image_tag @pickup_request.image_url(:medium) %></p><br>
+    <%= image_tag @pickup_request.image_url(:medium) unless @pickup_request.image.blank? %><br>
 </p>
 <p>
   <strong>Item Name:</strong>
