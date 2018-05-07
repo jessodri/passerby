@@ -16,7 +16,7 @@ class Profile < ApplicationRecord
     :country_code,
     presence: true )
 
-  geocoded_by :full_address
+  geocoded_by :partial_address
   after_validation :geocode
 
   def full_address

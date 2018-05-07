@@ -22,7 +22,7 @@
   <%= @pickup_request.delivery_address %>
 </p>
 
-<%#= google_map_image_tag(@profile) %>
+<%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
 
 
 <%= link_to 'Edit', edit_pickup_request_path %><br>
