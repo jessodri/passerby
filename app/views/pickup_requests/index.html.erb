@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pickup Requests</h1>
+
+<% @pickup_requests.each do |pickup| %>
+<br>
+    <%= pickup.first_name %>
+    <%= pickup.last_name %><br>
+    <%= image_tag profile.image_url(:thumb) unless profile.image.blank? %><br>
+
+    <%= link_to 'Show', profile_path(profile) %><br>
+    <%= link_to 'Edit', edit_profile_path(profile) %><br>
+    <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %><br>
