@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pickup Requests</h1>
+<h2>Pickup Requests</h2>
 <div type="button" class="btn">
     <%= link_to 'Create New Pickup Request', new_pickup_request_path %>
 </div><br><br>
@@ -9,13 +9,13 @@
 <br>
 <div class="pickup-card">
     <%= image_tag pickup.image_url(:medium) unless pickup.image.blank? %><br>
-    <p><%= pickup.item_name %></p>
+    <p><strong><%= pickup.item_name %></strong></p>
     <p><%= pickup.description %></p>
     <p><%= pickup.pickup_address.titleize %></p>
     <p><%= pickup.delivery_address %></p>
     <p>$<%= pickup.payment_amount %></p>
 
-    <%= link_to 'Show', pickup_request_path(pickup) %><br>
+    <%= link_to 'View Request', pickup_request_path(pickup) %><br>
     <%= link_to 'Edit', edit_pickup_request_path(pickup) %><br>
     <%= link_to 'Destroy', pickup_request_path(pickup), method: :delete, data: { confirm: 'Are you sure?' } %><br>
 </div>

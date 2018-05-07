@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @pickup_request.item_name %> Pickup Request</h1>
+<h2><%= @pickup_request.item_name %> Pickup Request</h2>
 <div class="show-request">
   <div class="show-image">
     <p>
@@ -26,6 +26,11 @@
     <p>
       <strong>Delivery Address:</strong>
       <%= @pickup_request.delivery_address %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @pickup_request.user.profile.full_name %>
     </p>
   </div>
 </div>
