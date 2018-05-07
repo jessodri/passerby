@@ -123,3 +123,13 @@ h1 {
         padding-right: 20px;
       }
   }
+
+  .pickup-requests {
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .pickup-card {
+          width: 280px;
+      }
+  }

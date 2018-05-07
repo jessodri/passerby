@@ -3,27 +3,39 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @conversations = Conversation.user_conversations(current_user)
+    puts "IN INDEX"
+    puts @conversation
+    # @conversations = Conversation.user_conversations(current_user)
+    @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+
   end
 
   def create
+    puts "IN CREATE"
+    puts params
     pickup_request = PickupRequest.find_by_id(params[:pickup_request_id])
-    sender = pickup_request.user
+    receiver = pickup_request.user
     
-  if params[:receiver_id]!=sender.id # Sender and Receiver should not be the same
+    if current_user.id != receiver.id # Sender and Receiver should not be the same
 
       if Conversation.between(params[:sender_id], params[:receiver_id]).present?
         @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first
       else
-        @conversation = Conversation.create!(conversation_params)
+        conversation_init = {
+          sender_id: current_user.id,
+          receiver_id: receiver.id,
+          pickup_request: pickup_request
+        }
+        @conversation = Conversation.create!(conversation_init)
       end
 
       redirect_to conversation_messages_path(@conversation)
 
-  else
-    respond_to do |format|
-      format.html { redirect_to pickup_request_path(@pickup_request), notice: 'You cannot send a message to yourself.' }
-      format.json { head :no_content }
+    else
+      respond_to do |format|
+        format.html { redirect_to pickup_request_path(@pickup_request), notice: 'You cannot send a message to yourself.' }
+        format.json { head :no_content }
+      end
     end
 
   end
@@ -59,4 +71,3 @@ class ConversationsController < ApplicationController
 
 end
 
-end

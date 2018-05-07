@@ -4,8 +4,9 @@ class Profile < ApplicationRecord
 
   belongs_to :user
   validates :user, presence: true
+  validates :user_id, uniqueness: { message: 'can only have one profile.' }
 
-  validates(
+  validates( 
     :first_name,
     :last_name,
     :bio,
