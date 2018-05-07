@@ -2,8 +2,9 @@ class PickupRequestsController < ApplicationController
   before_action :set_pickup_request, only: [:show, :edit, :update, :destroy]
 
 
-    def index
+      def index
         @pickup_requests = PickupRequest.all
+        # @profile = Profile.find(params[:id])
       end
   
       def new
@@ -14,8 +15,10 @@ class PickupRequestsController < ApplicationController
       end
     
       def create
+        # binding.pry
         @pickup_request = PickupRequest.create(pickup_request_params)
         @pickup_request.user = current_user
+        @pickup_request.delivery_address = current_user.profile.partial_address
         @pickup_request.save!
         redirect_to pickup_requests_path
         # item = Item.new
@@ -47,7 +50,8 @@ class PickupRequestsController < ApplicationController
         :pickup_address,
         :delivery_address,
         :payment_amount,
-        :image
+        :image,
+        :item_name
       ])
     end
 end

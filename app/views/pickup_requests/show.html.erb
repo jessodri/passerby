@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item Image:</strong><br>
+    <p><%= image_tag @pickup_request.image_url(:medium) %></p><br>
+</p>
+<p>
+  <strong>Item Name:</strong>
+  <%= @pickup_request.item_name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @pickup_request.description %>
+</p>
+
+<p>
+  <strong>Pickup Address:</strong>
+  <%= @pickup_request.pickup_address.titleize %>
+</p>
+
+<p>
+  <strong>Delivery Address:</strong>
+  <%= @pickup_request.delivery_address %>
+</p>
+
+<%#= google_map_image_tag(@profile) %>
+
+
+<%= link_to 'Edit', edit_pickup_request_path %><br>
+<%= link_to 'View All Pick-Up Requests', pickup_requests_path %>

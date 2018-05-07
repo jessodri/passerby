@@ -23,6 +23,10 @@ class Profile < ApplicationRecord
     "#{address_line_one}#{address_line_two}, #{city}, #{state}, #{postcode}, #{country_code}"
   end
 
+  def partial_address
+    "#{city}, #{state}, #{postcode}, #{country_code}"
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

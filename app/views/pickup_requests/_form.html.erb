@@ -1,0 +1,39 @@
+<%= form_with(model: @pickup_request) do |form| %>
+
+  <div class="field">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+<br>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%#= form.hidden_field :image, value: f.object.cached_image_data %>
+    <%= form.file_field :image %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= form.label :pickup_address %>
+    <%= form.text_field :pickup_address %>
+  </div>
+<br>
+
+<br>
+
+<div class="field">
+    <%= form.label :payment_amount %>
+    <%= form.number_field :payment_amount %>
+</div>
+
+<br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

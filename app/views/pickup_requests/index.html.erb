@@ -4,10 +4,12 @@
 
 <% @pickup_requests.each do |pickup| %>
 <br>
-    <%= pickup.description %>
-    <%= pickup.pickup_address %><br>
-    <%= pickup.delivery_address %><br>
-    <%= pickup.payment_amount %><br>
+    <%= image_tag pickup.image_url(:thumb) unless pickup.image.blank? %><br>
+    <p><%= pickup.item_name %></p>
+    <p><%= pickup.description %></p>
+    <p><%= pickup.pickup_address.titleize %></p>
+    <p><%= pickup.delivery_address %></p>
+    <p>$<%= pickup.payment_amount %></p>
 
 
     <%= link_to 'Show', pickup_request_path(pickup) %><br>

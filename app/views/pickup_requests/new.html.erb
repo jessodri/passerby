@@ -1,41 +1,6 @@
 <h1>New Pick-Up Request</h1>
-<%= form_with(model: @pickup_request) do |form| %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-<br>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%#= form.hidden_field :image, value: f.object.cached_image_data %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pickup_address %>
-    <%= form.text_field :pickup_address %>
-  </div>
-<br>
-
-<br>
-
-<div class="field">
-    <%= form.label :delivery_address %>
-    <%= form.text_field :delivery_address %>
-</div>
-
-<div class="field">
-    <%= form.label :payment_amount %>
-    <%= form.number_field :payment_amount %>
-</div>
-
-<br>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <br>
 <%#= link_to 'View Pick-Up Request', pickup_request_path %><br>
