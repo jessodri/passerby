@@ -1,29 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-    <%= image_tag @pickup_request.image_url(:medium) unless @pickup_request.image.blank? %><br>
-</p>
-<p>
-  <strong>Item Name:</strong>
-  <%= @pickup_request.item_name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @pickup_request.description %>
-</p>
+<h1><%= @pickup_request.item_name %> Pickup Request</h1>
+<div class="show-request">
+  <div class="show-image">
+    <p>
+      <%= image_tag @pickup_request.image_url(:medium) unless @pickup_request.image.blank? %><br>
+    </p>
+  </div>
 
-<p>
-  <strong>Pickup Address:</strong>
-  <%= @pickup_request.pickup_address.titleize %>
-</p>
+  <div class="show-details">
+    <p>
+      <strong>Item Name:</strong>
+      <%= @pickup_request.item_name %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @pickup_request.description %>
+    </p>
 
-<p>
-  <strong>Delivery Address:</strong>
-  <%= @pickup_request.delivery_address %>
-</p>
+    <p>
+      <strong>Pickup Address:</strong>
+      <%= @pickup_request.pickup_address.titleize %>
+    </p>
+
+    <p>
+      <strong>Delivery Address:</strong>
+      <%= @pickup_request.delivery_address %>
+    </p>
+  </div>
+</div>
 
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
 
-
-<%= link_to 'Edit', edit_pickup_request_path %><br>
-<%= link_to 'View All Pick-Up Requests', pickup_requests_path %>
+  <div type="button" class="btn">
+    <%= link_to 'Accept Request', root_path %>
+  </div>
+  <br>
+  <div type="button" class="btn">
+    <%= link_to 'View All Pick-Up Requests', pickup_requests_path %>
+  </div>
+  <br>
+  <div type="button" class="btn">
+    <%= link_to 'Edit Request', edit_pickup_request_path %><br>
+  </div>

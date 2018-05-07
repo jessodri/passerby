@@ -1,4 +1,27 @@
-<h1>Welcome to Passerby</h1>
-<p>Need something picked up?</p>
-<p>No car? Too far?</p> 
-<p>Passerby is here to help!</p>
+<div class="welcome">
+    <h1>Welcome to <span>Passer</span>by</h1>
+    <p>Need something picked up?</p>
+    <p>No car? Too far?</p> 
+    <p>Passerby is here to help!</p>
+</div>
+
+<% if user_signed_in?%>
+    <div type="button" class="btn">
+        <%= link_to 'Create Pickup Request', new_pickup_request_path %>
+    </div>
+    <br>
+    <div type="button" class="btn">
+        <%= link_to 'Browse Pickup Requests', pickup_requests_path %>
+    </div>
+
+<% else %>
+
+    <div type="button" class="btn">
+        <%= link_to 'Log-In', new_user_session_path %>
+    </div>
+    <br>
+    <div type="button" class="btn">
+        <%= link_to 'Sign-Up', new_user_registration_path %>
+    </div>
+
+<% end %>
