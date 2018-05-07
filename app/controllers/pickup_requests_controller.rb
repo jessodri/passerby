@@ -38,20 +38,22 @@ class PickupRequestsController < ApplicationController
       
         redirect_to pickup_requests_path, notice: "Delete success"    
       end
+
       private
 
-    def set_pickup_request
-      @pickup_request = PickupRequest.find(params[:id])
-    end
+      def set_pickup_request
+        @pickup_request = PickupRequest.find(params[:id])
+      end
 
-    def pickup_request_params
-      params.require(:pickup_request).permit([
-        :description, 
-        :pickup_address,
-        :delivery_address,
-        :payment_amount,
-        :image,
-        :item_name
-      ])
-    end
+      def pickup_request_params
+        params.require(:pickup_request).permit([
+          :description, 
+          :pickup_address,
+          :delivery_address,
+          :payment_amount,
+          :image,
+          :item_name,
+          :user_id
+        ])
+      end
 end
