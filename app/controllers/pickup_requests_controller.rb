@@ -1,7 +1,8 @@
 class PickupRequestsController < ApplicationController
-  before_action :set_pickup_request, only: [:show, :accept, :edit, :update, :destroy]
+  before_action :set_pickup_request, only: [:show, :accept, :edit, :update, :destroy, :charge]
   before_action :auth_actions, only: [:update, :edit, :destroy]
-  
+  before_action :authenticate_user!, only: [:charge]
+
       def index
         @pickup_requests = PickupRequest.all
         # @profile = Profile.find(params[:id])
@@ -14,6 +15,35 @@ class PickupRequestsController < ApplicationController
       def show
 
       end
+
+      def charge
+
+        if current_user.stripe_id.blank?
+        customer = Stripe::Customer.create(
+          email: params[:stripeEmail],
+          source: params[:stripeToken]
+        )
+        current_user.stripe_id = customer.id
+        current_user.save! #bad code above
+        end 
+  
+         charge = Stripe::Charge.create(
+          customer: current_user.stripe_id,
+          amount: @pickup_request.payment_amount.to_i,
+          description: @pickup_request.description,
+          currency: 'AUD'
+        )
+        
+        # current_user.charges << Charge.new(charge_id: charge.id)
+  
+        flash[:notice] = 'Payment Made!'
+        redirect_back fallback_location: pickup_request_path
+  
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_back fallback_location: pickup_request_path
+    
+    end
 
       def accept
         @pickup_request = PickupRequest.find(params[:id])

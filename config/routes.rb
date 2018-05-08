@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :pickup_requests do
     member do
       patch :accept 
+      post :charge
+
     end
   end
 

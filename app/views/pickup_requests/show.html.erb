@@ -28,6 +28,11 @@
       <%= @pickup_request.delivery_address %>
     </p>
 
+      <p>
+      <strong>Payment:</strong> $
+      <%= @pickup_request.price_in_dollars %>
+    </p>
+
     <p>
       <strong>User:</strong>
       <%= link_to @pickup_request.user.profile.full_name, @pickup_request.user.profile %><br>
@@ -36,6 +41,7 @@
 </div>
 
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
+    <%= render 'charge_form', pickup_request: @pickup_request, user: current_user %><br>
 
   <div class="btn">
     <%= link_to 'Accept Request', accept_pickup_request_path, method: :patch %>

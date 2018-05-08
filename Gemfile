@@ -11,7 +11,7 @@ gem "image_processing", "~> 1.0"
 gem 'fastimage'
 gem 'mini_magick'
 gem 'shrine' , '~> 2.11', '>= 2.11'
-gem 'stripe', '~> 3.13'
+gem 'stripe'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
