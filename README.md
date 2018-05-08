@@ -1,6 +1,6 @@
 # Rails Project
 
-<https://passerby-app.herokuapp.com/>
+[Heroku](https://passerby-app.herokuapp.com/)
 [GitHub Repository](https://github.com/jessodri/passerby)
 
 Passerby is a two sided marketplace for people to arrange pick-up and delivery of items they have purchased or for them to pick-up and deliver an item/s for someone else. 
@@ -79,7 +79,7 @@ I chose two fonts; Crimson Text for headings and Open Sans for paragraphs.
 
 For my logo I wanted to incorporate the 'P' and 'B' from Passerby.
 
-![logo](app/assets/images/Logo.png)
+![logo](app/assets/images/passerby-logo.svg)
 
 ## Coding
 
@@ -89,4 +89,7 @@ For my logo I wanted to incorporate the 'P' and 'B' from Passerby.
 
 ### Future Development
 
+There are so many things that I could do to improve my application that I just did not have time for or do not yet have the skills.
+
+- 
 ###

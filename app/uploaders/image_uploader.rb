@@ -8,7 +8,7 @@ class ImageUploader < Shrine
     plugin :remove_attachment
     plugin :store_dimensions
     plugin :validation_helpers
-    plugin :versions, names: [:original, :thumb, :medium]
+    plugin :versions
     plugin :processing
     plugin :delete_raw # delete processed files after uploading
   
