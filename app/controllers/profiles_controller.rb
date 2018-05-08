@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :auth_actions, only: [:update, :edit, :destroy]
 
   def index
     @profiles = Profile.all
@@ -53,6 +54,10 @@ class ProfilesController < ApplicationController
 
     def set_profile
       @profile = Profile.find(params[:id])
+    end
+
+    def auth_actions
+      authorize @profile
     end
 
     def profile_params

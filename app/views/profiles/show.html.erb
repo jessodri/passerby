@@ -2,7 +2,7 @@
 
 <p>
   <strong>Profile Image:</strong><br>
-    <%= image_tag @profile.image_url(:medium) %>
+    <%= image_tag @profile.image_url(:medium) unless @profile.image.blank? %>
 
 
 <p>

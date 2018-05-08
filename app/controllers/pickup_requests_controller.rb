@@ -1,6 +1,6 @@
 class PickupRequestsController < ApplicationController
   before_action :set_pickup_request, only: [:show, :accept, :edit, :update, :destroy]
-
+  before_action :auth_actions, only: [:update, :edit, :destroy]
 
       def index
         @pickup_requests = PickupRequest.all
@@ -52,6 +52,10 @@ class PickupRequestsController < ApplicationController
 
       def set_pickup_request
         @pickup_request = PickupRequest.find(params[:id])
+      end
+
+      def auth_actions
+        authorize @pickup_request
       end
 
       def pickup_request_params
