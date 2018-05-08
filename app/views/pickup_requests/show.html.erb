@@ -49,8 +49,8 @@
     <%= link_to 'View All Pick-Up Requests', pickup_requests_path %>
   </div>
   <br>
-  <div type="button" class="btn">
     <% if policy(@pickup_request).edit? %>
+    <div type="button" class="btn">
       <%= link_to 'Edit Request', edit_pickup_request_path %><br>
+    </div>
     <% end %>
-  </div>
