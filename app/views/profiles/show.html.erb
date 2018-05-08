@@ -33,6 +33,9 @@
   <strong><%= request.item_name %><br></strong>
   <%= request.description %><br>
   <%= request.pickup_address.titleize %><br>
-  <%= request.user_to_pickup %><br>
+  <% if request.user_to_pickup.nil? %>
+  <% else %>
+    <%= request.user_to_pickup.accepted %><br>
+  <% end %>
 
 <% end %>

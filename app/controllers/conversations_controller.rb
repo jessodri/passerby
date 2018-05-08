@@ -19,8 +19,10 @@ class ConversationsController < ApplicationController
     if current_user.id != receiver.id # Sender and Receiver should not be the same
 
       if Conversation.between(params[:sender_id], params[:receiver_id]).present?
+        puts "IF TRUE"
         @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first
       else
+        puts "IF FALSE" 
         conversation_init = {
           sender_id: current_user.id,
           receiver_id: receiver.id,

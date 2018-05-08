@@ -43,9 +43,13 @@
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
     <%= render 'charge_form', pickup_request: @pickup_request, user: current_user %><br>
 
+<% if !@pickup_request.user_to_pickup.present? %>
   <div class="btn">
     <%= link_to 'Accept Request', accept_pickup_request_path, method: :patch %>
   </div>
+  <% else %>
+  <div class="btn">Request Unavailable</div>
+  <% end %>
   <br>
   <div type="button" class="btn">
     <%= link_to 'Send Message', conversations_path({ :pickup_request_id => @pickup_request} ), method: :create %> 
