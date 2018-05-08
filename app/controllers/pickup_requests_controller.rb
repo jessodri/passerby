@@ -15,20 +15,22 @@ class PickupRequestsController < ApplicationController
       end
 
       def accept
-        if params[:accept] == "activated"
-        else
-        end
+        #If user click 'Accept Request' UserToPickup is created and accepted is changed to 'true'
+        #        
+        @pickup_request = PickupRequest.find(params[:id])
+        user_to_pickup = UserToPickup.new(user_id: current_user.id, pickup_request_id: @pickup_request.id, accepted: true)
+        user_to_pickup.save!
+        redirect_to pickup_requests_path
       end
-    
+      
       def create
         # binding.pry
         @pickup_request = PickupRequest.create(pickup_request_params)
         @pickup_request.user = current_user
         @pickup_request.delivery_address = current_user.profile.partial_address
         @pickup_request.save!
-
+        
         redirect_to pickup_requests_path
-        # item = Item.new
       end
   
       def edit

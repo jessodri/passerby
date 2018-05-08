@@ -37,8 +37,8 @@
 
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
 
-  <div type="button" class="btn">
-    <%= link_to 'Accept Request', accept_pickup_request_path %>
+  <div class="btn">
+    <%= link_to 'Accept Request', accept_pickup_request_path, method: :patch %>
   </div>
   <br>
   <div type="button" class="btn">
