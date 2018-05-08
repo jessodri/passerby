@@ -30,6 +30,7 @@ html, body {
     color: var(--main-color-one);
     font-family: var(--main-font);
     font-size: 18px;
+    box-sizing: border-box;
 }
 
 .nav {
@@ -49,9 +50,10 @@ html, body {
         a {
             &:link {
             color: var(--main-color-one);
+            font-weight: bold;
             }
             &:visited {
-                color: purple;
+                color: var(--main-color-one);
             }
             &:hover {
                 color: var(--main-color-three);
@@ -85,9 +87,10 @@ h2 {
 
 .container {
     overflow: hidden;
-    max-width: 100vw;   
+    width: 80vw;   
+    margin: auto;
     height: 100%;
-    margin: 0px 200px; 
+    // margin: 0px 200px; 
     // display: flex;
     // flex-direction: column;
     // justify-content: flex-start;
@@ -131,13 +134,29 @@ h2 {
 
   .pickup-requests {
       display:flex;
-      justify-content: space-between;
+      justify-content: space-around;
+      justify-items: center;
       flex-wrap: wrap;
+      align-content: center;
+      margin: auto;
 
       .pickup-card {
-          width: 250px;
+          width: 200px;
+          margin-bottom: 60px;
+          padding: 10px;
       }
   }
+
+  .profile {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .profile-card {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+}
 
   .form {
     width: 90%;
