@@ -24,11 +24,11 @@ class PickupRequestsController < ApplicationController
           user_to_pickup.save!  
           redirect_to pickup_requests_path, notice: "You have successfully accepted this request!"
         
-        elsif user_to_pickup.accepted == true
-          respond_to do |format|
-          format.html { redirect_to pickup_request_path(@pickup_request), notice: 'This request is no longer available.' }
-          format.json { head :no_content }
-          end
+        # elsif user_to_pickup.accepted == true
+        #   respond_to do |format|
+        #   format.html { redirect_to pickup_request_path(@pickup_request), notice: 'This request is no longer available.' }
+        #   format.json { head :no_content }
+        #   end
         
         else
           respond_to do |format|
