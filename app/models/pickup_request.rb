@@ -3,7 +3,8 @@ class PickupRequest < ApplicationRecord
 
   belongs_to :user
   has_many :conversations
-  # accepts_nested_attributes_for :user_to_pickups
+  has_one :user_to_pickup
+  accepts_nested_attributes_for :user_to_pickup
 
   def price_in_dollars
     payment_amount.to_f / 100.0

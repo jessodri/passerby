@@ -112,7 +112,8 @@ class PickupRequestsController < ApplicationController
           :payment_amount,
           :image,
           :item_name,
-          :user_id
+          :user_id,
+          user_to_pickups: [:accepted],
         ])
       end
 end

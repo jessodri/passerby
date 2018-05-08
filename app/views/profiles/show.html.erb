@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%= @profile.full_name %>'s Profile</h2>
+<div type="button" class="btn">
+<% if policy(@profile).edit? %>
+      <%= link_to 'Edit Profile', edit_profile_path(@profile) %><br>
+<% end %>
+</div>
 <p>
   <strong>Profile Image:</strong><br>
     <%= image_tag @profile.image_url(:medium) unless @profile.image.blank? %>
-
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -20,17 +25,14 @@
   <%= @profile.partial_address %>
 </p>
 
-<%= google_map_image_tag(@profile) %>
+<%= google_map_image_tag(@profile) %><br>
 
-<% if policy(@profile).edit? %>
-      <%= link_to 'Edit', edit_profile_path(@profile) %><br>
+  <%#= @profile.user.pickup_requests.select('pickup_request.*, user_to_pickup.accepted') %>
+
+<% @profile.user.pickup_requests.each do |request|%><br>
+  <strong><%= request.item_name %><br></strong>
+  <%= request.description %><br>
+  <%= request.pickup_address.titleize %><br>
+  <%= request.user_to_pickup %><br>
+
 <% end %>
-
-<%# @user.pickup_request.select('pickup_request.*, user_to_pickup.accepted').each do |i| %>
-  <p><%#= i.accepted %></p>
-<%# end %>
-
-  <%#= @profile.accepted_requests %>
-  <%# @profile.user.pickup_requests.user_to_pickups.each do |test|%>
-  <%#= test.accepted %>
-<%# end %>
