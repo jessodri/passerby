@@ -12,21 +12,30 @@ class PickupRequestsController < ApplicationController
       end
 
       def show
+
       end
 
       def accept
         @pickup_request = PickupRequest.find(params[:id])
-        
         if current_user.id != @pickup_request.user_id
           # flash[:notice] = "You cannot accept your own request!"
           user_to_pickup = UserToPickup.new(user_id: current_user.id, pickup_request_id: @pickup_request.id, accepted: true)
+          
           user_to_pickup.save!  
           redirect_to pickup_requests_path, notice: "You have successfully accepted this request!"
+        
+        elsif user_to_pickup.accepted == true
+          respond_to do |format|
+          format.html { redirect_to pickup_request_path(@pickup_request), notice: 'This request is no longer available.' }
+          format.json { head :no_content }
+          end
+        
         else
-        respond_to do |format|
+          respond_to do |format|
           format.html { redirect_to pickup_request_path(@pickup_request), notice: 'You cannot accept your own request!' }
           format.json { head :no_content }
           end
+          
         end
       end
       

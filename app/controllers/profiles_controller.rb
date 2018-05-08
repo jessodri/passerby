@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    user_to_pickup = UserToPickup.find #something
+    @profile.accepted_requests = user_to_pickup.accepted #something
   end
 
   def create
