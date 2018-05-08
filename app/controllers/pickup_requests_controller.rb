@@ -1,7 +1,7 @@
 class PickupRequestsController < ApplicationController
   before_action :set_pickup_request, only: [:show, :accept, :edit, :update, :destroy]
   before_action :auth_actions, only: [:update, :edit, :destroy]
-
+  
       def index
         @pickup_requests = PickupRequest.all
         # @profile = Profile.find(params[:id])
@@ -15,12 +15,14 @@ class PickupRequestsController < ApplicationController
       end
 
       def accept
-        #If user click 'Accept Request' UserToPickup is created and accepted is changed to 'true'
-        #        
         @pickup_request = PickupRequest.find(params[:id])
         user_to_pickup = UserToPickup.new(user_id: current_user.id, pickup_request_id: @pickup_request.id, accepted: true)
         user_to_pickup.save!
-        redirect_to pickup_requests_path
+        
+        unless current_user == @pickup_request.user_id
+          flash[:notice] = "You cannot accept your own request!"
+        end
+        redirect_to pickup_requests_path, notice: "You have successfully accepted this request!"
       end
       
       def create

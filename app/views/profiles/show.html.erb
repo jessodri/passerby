@@ -25,3 +25,7 @@
 <% if policy(@profile).edit? %>
       <%= link_to 'Edit', edit_profile_path(@profile) %><br>
 <% end %>
+
+<% @user.pickup_request.select('pickup_request.*, user_to_pickup.accepted').each do |i| %>
+  <p><%= i.accepted %></p>
+<% end %>
