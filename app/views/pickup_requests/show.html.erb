@@ -50,5 +50,7 @@
   </div>
   <br>
   <div type="button" class="btn">
-    <%= link_to 'Edit Request', edit_pickup_request_path %><br>
+    <% if policy(@pickup_request).edit? %>
+      <%= link_to 'Edit Request', edit_pickup_request_path %><br>
+    <% end %>
   </div>

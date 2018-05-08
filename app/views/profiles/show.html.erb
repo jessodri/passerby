@@ -22,5 +22,6 @@
 
 <%= google_map_image_tag(@profile) %>
 
-
-<%= link_to 'Edit', edit_profile_path(@profile) %><br>
+<% if policy(@profile).edit? %>
+      <%= link_to 'Edit', edit_profile_path(@profile) %><br>
+<% end %>

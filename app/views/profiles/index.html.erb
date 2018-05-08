@@ -9,7 +9,14 @@
     <%= image_tag profile.image_url(:thumb) unless profile.image.blank? %><br>
 
     <%= link_to 'Show', profile_path(profile) %><br>
-    <%= link_to 'Edit', edit_profile_path(profile) %><br>
-    <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+    <% if policy(profile).edit? %>
+        <%= link_to 'Edit', edit_profile_path(profile) %><br>
+    <% end %>
+    
+    <% if policy(profile).destroy? %>
+        <%= link_to 'Destroy', profile_path(profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+
 <% end %><br>
 

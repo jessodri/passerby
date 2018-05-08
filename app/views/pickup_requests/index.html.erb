@@ -16,8 +16,13 @@
     <p>$<%= pickup.payment_amount %></p>
 
     <%= link_to 'View Request', pickup_request_path(pickup) %><br>
-    <%= link_to 'Edit', edit_pickup_request_path(pickup) %><br>
-    <%= link_to 'Destroy', pickup_request_path(pickup), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% if policy(pickup).edit? %>
+        <%= link_to 'Edit', edit_pickup_request_path(pickup) %><br>
+    <% end %>
+    <% if policy(pickup).destroy? %>
+        <%= link_to 'Destroy', pickup_request_path(pickup), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+
 </div>
 <% end %><br>
 <div>
