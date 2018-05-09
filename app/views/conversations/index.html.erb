@@ -2,12 +2,9 @@
 <ul>
   <% @conversations.each do |conversation| %>
     <li>
-      <%= link_to conversation.recipient(current_user).profile.full_name, conversation_messages_path(conversation) %>
-      <% if !conversation.unread_message_count(current_user).zero? %>
-        (<%= conversation.unread_message_count(current_user) %>)
-      <% end %>
+      <%= link_to conversation.sender.profile.full_name, conversation_messages_path(conversation) %>
       
-      <%#= link_to 'Delete Conversation', conversations_path(conversation), method: :destroy %>
+      <%= link_to 'Delete Conversation', conversations_path(conversation), method: :destroy %>
 
     </li>
   <% end %>
