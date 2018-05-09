@@ -34,7 +34,8 @@
   <% if current_user == @profile.user %>
   <h3>My Pickup Requests </h3>
     <% @pickup_requests.each do |request|%>
-        <p><br><strong><%= request.item_name %></strong></p>
+  <div class="request-info-card">
+        <p><strong>Item Name: </strong><%= request.item_name %></p>
         <p><strong>Pickup Location:</strong> <%= request.pickup_address.titleize %></p>
       <% if request.user_to_pickup.nil? %>
         <p><strong>Status:</strong> Not Accepted</p>
@@ -72,7 +73,7 @@
      <br>
 
      <%= link_to 'View Request', pickup_request_path(request) %><br>
-
+  </div>
     <% end %>
   <% end %>
 

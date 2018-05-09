@@ -172,6 +172,18 @@ h2 {
     
 .profile-page {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+
+    .request-info {
+        display: flex;
+        flex-direction: column;
+        .request-info-card {
+        margin-bottom: 20px;
+        padding: 5px;
+        background-color: white;
+        border: var(--main-color-three) solid 4px;
+
+        }
+    }
 }
