@@ -44,8 +44,28 @@
             <p><% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted </p>
             <p><strong>Accepted by: </strong>
             <%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request) %><br>
-          <% end %><br>
+          <% end %>
+        
+        <%#= render 'pickup_requests/charge_form', pickup_request: request, user: current_user %><br>
 
+        <%= form_tag charge_pickup_request_path(request) do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+              </article>
+
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="<%= request.description %>"
+              data-amount="<%= request.payment_amount %>"
+              data-currency="AUD"
+              data-email=<%= request.user.email %>
+              data-locale="auto"></script>
+        <% end %>
+        <br>
         <%= link_to 'View Request', pickup_request_path(request) %><br>
 
         <% end %>

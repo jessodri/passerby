@@ -41,7 +41,7 @@
 </div>
 
 <%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
-    <%= render 'charge_form', pickup_request: @pickup_request, user: current_user %><br>
+    <%#= render 'charge_form', pickup_request: @pickup_request, user: current_user %><br>
 
 <% if !@pickup_request.user_to_pickup.present? %>
   <div class="btn">
@@ -59,6 +59,7 @@
     <%= link_to 'View All Pick-Up Requests', pickup_requests_path %>
   </div>
   <br>
+  
     <% if policy(@pickup_request).edit? %>
     <div type="button" class="btn">
       <%= link_to 'Edit Request', edit_pickup_request_path %><br>
