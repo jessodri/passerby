@@ -3,7 +3,7 @@ class PickupRequest < ApplicationRecord
 
   belongs_to :user
   has_many :conversations
-  has_one :user_to_pickup
+  has_one :user_to_pickup, dependent: :destroy
   accepts_nested_attributes_for :user_to_pickup
 
   def price_in_dollars

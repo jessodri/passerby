@@ -3,5 +3,8 @@
 <%= render 'profiles/form' %>
 
 <br>
-<%= link_to 'Home Page', root_path %><br>
-<%= link_to 'Index Page', profiles_path %>
+  <% if policy(@profile).destroy? %>
+  <div type="button" class="btn" id="destroy">
+      <%= link_to 'Delete Profile', profile_path(@profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+  </div>
+  <% end %><br>

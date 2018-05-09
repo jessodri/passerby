@@ -7,26 +7,39 @@
 
 <div class="navitem">
     <% if user_signed_in?%>
+
+
+        <%# <div class="nav-link"> %>
+            <%#= link_to 'Profiles Index', profiles_path %>
+        <%# </div> %>
         <div class="nav-link">
-            <%= link_to 'Profiles Index', profiles_path %>
+            <%= link_to 'Edit Account', edit_user_registration_path %>
         </div>
-    <% if current_user.profile.present? %>
-        <div><%= link_to 'My Profile', current_user.profile %></div>
-        
-    <% else %>
-        <div><%= link_to 'Create Profile', new_profile_path %></div>
-    <% end %>
+
+            <% if current_user.profile.present? %>
+                <div>
+                    <%= link_to 'My Profile', current_user.profile %>
+                </div>
+            <% else %>
+                <div>
+                    <%= link_to 'Create Profile', new_profile_path %>
+                </div>
+            <% end %>
 
         <div class="nav-link">
             <%= link_to 'Log-Out', destroy_user_session_path, method: :delete %>
         </div>
+
     <% else %>
+
         <div class="nav-link">
             <%= link_to 'Sign-Up', new_user_registration_path %>
         </div>
+
         <div class="nav-link">
             <%= link_to 'Log-In', new_user_session_path %>
         </div>
+
     <% end %>
 </div>
 </div>
