@@ -56,8 +56,9 @@ class PickupRequestsController < ApplicationController
         if current_user.id != @pickup_request.user_id
           # flash[:notice] = "You cannot accept your own request!"
           user_to_pickup = UserToPickup.new(user_id: current_user.id, pickup_request_id: @pickup_request.id, accepted: true)
-          
           user_to_pickup.save!  
+          AcceptRequestMailer.accept_request(current_user).deliver_now
+
           redirect_to pickup_request_path, notice: "You have successfully accepted this request!"
         
         # elsif user_to_pickup.accepted == true

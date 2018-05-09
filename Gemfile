@@ -7,6 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Added Gems
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem "image_processing", "~> 1.0"
 gem 'fastimage'
 gem 'mini_magick'
