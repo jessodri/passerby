@@ -76,6 +76,8 @@ class PickupRequestsController < ApplicationController
         # pickup_request.user_to_pickup.destroy!
         # user = User.find(params[:id])
         UserToPickup.where(pickup_request_id: pickup_request.id).destroy_all
+        redirect_to pickup_request_path, notice: "You have successfully reset this request!"
+
       end
 
       def create

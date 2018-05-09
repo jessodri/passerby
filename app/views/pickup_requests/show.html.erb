@@ -53,7 +53,7 @@
 
   <% else current_user == @pickup_request.user && @pickup_request.user_to_pickup.present? %>
   <div class="btn">
-    <%= button_to 'Reset Request', unaccept_pickup_request_path, method: :delete %>
+    <%= link_to 'Reset Request', unaccept_pickup_request_path, method: :delete %>
   </div>
   <% end %>
 
