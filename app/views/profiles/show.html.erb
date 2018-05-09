@@ -17,6 +17,14 @@
       <%= @profile.full_name %>
     </p>
 
+  <% if current_user == @profile.user %>
+    <p>
+      <strong>Email:</strong>
+      <%= @profile.user.email %>
+    </p>
+  <% else %>
+  <% end %>
+
     <p>
       <strong>Bio:</strong>
       <%= @profile.bio %>
