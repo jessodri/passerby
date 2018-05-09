@@ -9,4 +9,5 @@ class PickupRequest < ApplicationRecord
   def price_in_dollars
     payment_amount.to_f / 100.0
    end
+
 end

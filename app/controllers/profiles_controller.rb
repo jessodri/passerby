@@ -11,9 +11,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    # pickup_request = PickupRequest.find(params[:id])
-    # user_to_pickup = UserToPickup.find(params[:id]) #something
-    # @profile.accepted_requests = current_user.pickup_request.user_to_pickup.accepted #something
+    @pickup_requests = @profile.user.pickup_requests
+    @user_to_pickup = UserToPickup.find(params[:id]) #something
   end
 
   def create

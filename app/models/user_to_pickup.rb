@@ -6,4 +6,9 @@ class UserToPickup < ApplicationRecord
   # validates :, uniqueness: { scope: : }
   # validates :user_to_pickup_id, uniqueness: { scope: :user_id, message: "You've already accepted this request!" }
 
+
+
+  def full_name
+    
+  end
 end

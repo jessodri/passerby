@@ -1,41 +1,55 @@
 <p id="notice"><%= notice %></p>
 <h2><%= @profile.full_name %>'s Profile</h2>
-<div type="button" class="btn">
 <% if policy(@profile).edit? %>
+<div type="button" class="btn">
       <%= link_to 'Edit Profile', edit_profile_path(@profile) %><br>
-<% end %>
 </div>
-<p>
-  <strong>Profile Image:</strong><br>
-    <%= image_tag @profile.image_url(:medium) unless @profile.image.blank? %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.full_name %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @profile.partial_address %>
-</p>
-
-<%= google_map_image_tag(@profile) %><br>
-
-  <%#= @profile.user.pickup_requests.select('pickup_request.*, user_to_pickup.accepted') %>
-
-<% @profile.user.pickup_requests.each do |request|%><br>
-  <strong><%= request.item_name %><br></strong>
-  <%= request.description %><br>
-  <%= request.pickup_address.titleize %><br>
-  <% if request.user_to_pickup.nil? %>
-  <% else %>
-    <%= request.user_to_pickup.accepted %><br>
-  <% end %>
-
 <% end %>
+
+<div class="profile-page">
+  <div class="profile-info">
+    <p>
+        <%= image_tag @profile.image_url(:medium) unless @profile.image.blank? %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @profile.full_name %>
+    </p>
+
+    <p>
+      <strong>Bio:</strong>
+      <%= @profile.bio %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= @profile.partial_address %>
+    </p>
+
+    <%= google_map_image_tag(@profile) %><br>
+  </div>
+
+  <div class="request-info">
+    <h3>My Pickup Requests </h3>
+    <% if current_user == @profile.user %>
+        <% @pickup_requests.each do |request|%>
+        
+        <p><br><strong><%= request.item_name %></strong></p>
+        <p><strong>Pickup Location:</strong> <%= request.pickup_address.titleize %></p>
+
+          <% if request.user_to_pickup.nil? %>
+            <p><strong>Status:</strong> Not Accepted</p>
+          <% else %> 
+            <p><% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted </p>
+            <p><strong>Accepted by: </strong><%= request.user_to_pickup.user.profile.full_name %></p>
+          <% end %>
+
+        <%= link_to 'View Request', pickup_request_path(request) %><br>
+        <%#= link_to 'View User', profile_path(request) %><br>
+
+        <% end %>
+    <% end %>
+
+  </div>
+</div>
