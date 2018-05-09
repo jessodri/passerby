@@ -10,9 +10,14 @@ class ConversationsController < ApplicationController
 
   end
 
+  def show 
+
+  end
+
   def create
     puts "IN CREATE"
     puts params
+    
     pickup_request = PickupRequest.find_by_id(params[:pickup_request_id])
     receiver = pickup_request.user
     

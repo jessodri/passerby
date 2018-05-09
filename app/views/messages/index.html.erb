@@ -2,7 +2,7 @@
   <% @messages.each do |message| %>
     <% if message.body %>
       <li>
-        <h4><%= message.user.email %></h4>
+        <h4><%= message.user.profile.full_name %></h4>
         <p><%= message.body %></p>
       </li>
     <% end %>

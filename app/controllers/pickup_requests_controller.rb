@@ -61,12 +61,6 @@ class PickupRequestsController < ApplicationController
 
           redirect_to pickup_request_path, notice: "You have successfully accepted this request!"
         
-        # elsif user_to_pickup.accepted == true
-        #   respond_to do |format|
-        #   format.html { redirect_to pickup_request_path(@pickup_request), notice: 'This request is no longer available.' }
-        #   format.json { head :no_content }
-        #   end
-        
         else
           respond_to do |format|
           format.html { redirect_to pickup_request_path(@pickup_request), notice: 'You cannot accept your own request!' }
@@ -75,7 +69,15 @@ class PickupRequestsController < ApplicationController
           
         end
       end
-      
+
+      def unaccept
+        # user_to_pickup = UserToPickup.find(params[:id])
+        pickup_request = PickupRequest.find(params[:id])
+        # pickup_request.user_to_pickup.destroy!
+        # user = User.find(params[:id])
+        UserToPickup.where(pickup_request_id: pickup_request.id).destroy_all
+      end
+
       def create
         # binding.pry
         @pickup_request = PickupRequest.create(pickup_request_params)

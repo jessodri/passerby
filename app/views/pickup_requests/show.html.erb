@@ -47,10 +47,18 @@
   <div class="btn">
     <%= link_to 'Accept Request', accept_pickup_request_path, method: :patch %>
   </div>
-  <% else %>
+
+  <% elsif current_user != @pickup_request.user && @pickup_request.user_to_pickup.present? %>
   <div class="btn">Request Unavailable</div>
+
+  <% else current_user == @pickup_request.user && @pickup_request.user_to_pickup.present? %>
+  <div class="btn">
+    <%= button_to 'Reset Request', unaccept_pickup_request_path, method: :delete %>
+  </div>
   <% end %>
+
   <br>
+
   <div type="button" class="btn">
     <%= link_to 'Send Message', conversations_path({ :pickup_request_id => @pickup_request} ), method: :create %> 
   </div>
