@@ -35,7 +35,7 @@ html, body {
 
 .nav {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     // width: 100%;
     margin: auto;
     // height: 140px;
@@ -48,6 +48,7 @@ html, body {
         justify-self: center;
         justify-content: space-between;
         align-items: center;
+        margin: auto;
         padding: 0 2vw;
         a {
             &:link {
@@ -194,3 +195,4 @@ h2 {
     background-color: rgb(240, 63, 63);
     border-color: rgb(240, 63, 63);
 }
+
