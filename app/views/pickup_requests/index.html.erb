@@ -3,7 +3,7 @@
 <h2>Pickup Requests</h2>
 <p>
 <%= form_with scope: :pickup_requests, method: :get, local: true do |f| %>
-  <%= f.label :Location %>
+  <%= f.label :location %>
   <%= f.text_field :search %>
   <%= f.button :search %>
 <% end %>
