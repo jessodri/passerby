@@ -73,13 +73,35 @@ For now I plan to charge a one-time sign-up fee to use the website. In future, w
 
 I wanted to keep my design simple and clean. I chose 3 main colors:
 
-![colors](app/assets/images/.png)
+![colors](app/assets/images/colors.png)
 
 I chose two fonts; Crimson Text for headings and Open Sans for paragraphs.
+
+![font](app/assets/images/font.png)
 
 For my logo I wanted to incorporate the 'P' and 'B' from Passerby.
 
 ![logo](app/assets/images/passerby-logo.svg)
+
+### Figma Wireframes
+<https://www.figma.com/file/FvsDpxM6EfvKTNHwqbk1uiAu/Rails-Project?node-id=3%3A0>
+
+I started off with a very basic greyscale design to decide on my layout:
+![greyscale](app/assets/images/greyscale-wireframes.png)
+![greyscale](app/assets/images/greyscale-wireframes2.png)
+
+I experimented with a couple of colors but ultimately I stayed with the blue. I was not happy with my first attempt at designing the landing pages:
+
+![mobile first iteration](app/assets/images/first-iteration.png)
+
+
+![mobile second iteration](app/assets/images/second-iteration.png)
+![mobile second iteration](app/assets/images/second-iteration2.png)
+![mobile second iteration](app/assets/images/second-iteration3.png)
+
+![desktop first iteration](app/assets/images/desktop1.png)
+![desktop first iteration](app/assets/images/desktop2.png)
+
 
 ## Coding
 
