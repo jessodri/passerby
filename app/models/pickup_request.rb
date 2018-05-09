@@ -8,6 +8,10 @@ class PickupRequest < ApplicationRecord
 
   def price_in_dollars
     payment_amount.to_f / 100.0
-   end
+  end
+
+  def self.search_by_pickup_address(search)
+      where("LOWER(pickup_address) LIKE ?", "%#{search.downcase}%")
+  end
 
 end

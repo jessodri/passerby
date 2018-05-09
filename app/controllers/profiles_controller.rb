@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
 
   def show
     @pickup_requests = @profile.user.pickup_requests
-    @user_to_pickup = UserToPickup.find(params[:id]) #something
+    # @user_to_pickup = UserToPickup.find(params[:id]) #something
   end
 
   def create

@@ -42,11 +42,11 @@
             <p><strong>Status:</strong> Not Accepted</p>
           <% else %> 
             <p><% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted </p>
-            <p><strong>Accepted by: </strong><%= request.user_to_pickup.user.profile.full_name %></p>
-          <% end %>
+            <p><strong>Accepted by: </strong>
+            <%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request) %><br>
+          <% end %><br>
 
         <%= link_to 'View Request', pickup_request_path(request) %><br>
-        <%#= link_to 'View User', profile_path(request) %><br>
 
         <% end %>
     <% end %>

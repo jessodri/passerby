@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Pickup Requests</h2>
+<p>
+<%= form_with scope: :pickup_requests, method: :get, local: true do |f| %>
+  <%= f.label :Location %>
+  <%= f.text_field :search %>
+  <%= f.button :search %>
+<% end %>
+</p>
 <div type="button" class="btn">
     <%= link_to 'Create New Pickup Request', new_pickup_request_path %>
 </div><br><br>
@@ -9,11 +16,11 @@
 <br>
 <div class="pickup-card">
     <%= image_tag pickup.image_url(:medium) unless pickup.image.blank? %><br>
-    <p><strong><%= pickup.item_name %></strong></p>
-    <p><%= pickup.description %></p>
-    <p><%= pickup.pickup_address.titleize %></p>
-    <p><%= pickup.delivery_address %></p>
-    <p>$<%= pickup.price_in_dollars %></p>
+    <p><strong>Item Name: </strong><%= pickup.item_name %></p>
+    <p><strong>Description: </strong><%= pickup.description %></p>
+    <p><strong>Pickup Address: </strong><%= pickup.pickup_address.titleize %></p>
+    <p><strong>Delivery Address: </strong><%= pickup.delivery_address %></p>
+    <p><strong>Payment: </strong>$<%= pickup.price_in_dollars %></p>
 
     <%= link_to 'View Request', pickup_request_path(pickup) %><br>
     <% if policy(pickup).edit? %>
