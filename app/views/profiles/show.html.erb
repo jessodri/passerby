@@ -44,7 +44,7 @@
     <% @pickup_requests.each do |request|%>
     <div class="request-info-card">
         <p><strong>Item Name: </strong><%= request.item_name %></p>
-        <p><strong>Pickup Location:</strong> <%= request.pickup_address.titleize %></p>
+        <p><strong>Pickup Location:</strong> <%= request.partial_pickup_address %></p>
       <% if request.user_to_pickup.nil? %>
         <p><strong>Status:</strong> Not Accepted</p>
       <% else %> 
@@ -56,26 +56,8 @@
           <br>
         </p>
 
-        <%= form_tag charge_pickup_request_path(request) do %>
-            <article>
-              <% if flash[:error].present? %>
-                <div id="error_explanation">
-                  <p><%= flash[:error] %></p>
-                </div>
-              <% end %>
-            </article>
-
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="Payment for: <%= request.user_to_pickup.user.profile.full_name %>"
-              data-amount="<%= request.payment_amount %>"
-              data-currency="AUD"
-              data-label="Pay <%= request.user_to_pickup.user.profile.full_name %>"
-              data-email=<%= request.user.email %>
-              data-locale="auto">
-            </script>
-        <% end %>
-        <%#= render 'pickup_requests/charge_form', pickup_request: request, user: current_user %>
+        <%= render 'pickup_requests/charge_form', request: request, user: current_user %>
+        
       <% end %>
      <br>
       <%= link_to "View messages", conversations_path({ :pickup_request_id => @pickup_request}) %>

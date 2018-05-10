@@ -1,36 +1,52 @@
 <%= form_with(model: @pickup_request, class: "form",) do |form| %>
 
   <div class="field">
-    <%= form.label :item_name %>
+    <strong><%= form.label :item_name %></strong>
     <%= form.text_field :item_name, :class => "form-field" %>
   </div>
   <br>
 
   <div class="field">
-    <%= form.label :description %>
+    <strong><%= form.label :description %></strong>
     <%= form.text_area :description, :class => "form-field" %>
   </div>
 <br>
 
   <div class="field">
-    <%= form.label :image %>
+    <strong><%= form.label :image %></strong>
     <%#= form.hidden_field :image, value: f.object.cached_image_data %>
     <%= form.file_field :image, :class => "form-field" %>
   </div>
   <br>
 
   <div class="field">
-    <%= form.label :pickup_address %>
-    <%= form.text_field :pickup_address, :class => "form-field" %>
+      <strong><%= form.label :pickup_address %>:</strong><br><br>
+      <%= form.label :city %><br>
+      <%= form.text_field :city, :class => "form-field" %>
+  </div>
+  <br>
+  <div class="field">
+      <%= form.label :state %><br>
+      <%= form.text_field :state, :class => "form-field" %>
+  </div>
+
+  <br>
+  <div class="field">
+      <%= form.label :postcode %><br>
+      <%= form.text_field :postcode, :class => "form-field" %>
+  </div>
+  <br>
+  <div class="field">
+      <%= form.label :country %><br>
+      <%= form.country_select :country_code, priority_countries: ["AU"], :class => "form-field" %>
   </div>
 <br>
+  <div class="field">
+      <strong><%= form.label :payment_amount %></strong>
+      <%= form.number_field :payment_amount, in: 0.0..2000.0, step: 0.05, :class => "form-field" %>
+  </div>
 
-<div class="field">
-    <%= form.label :payment_amount %>
-    <%= form.number_field :payment_amount, in: 1.0..200.0, step: 0.05, :class => "form-field" %>
-</div>
-
-<br>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

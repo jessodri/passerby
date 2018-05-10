@@ -20,7 +20,8 @@
 
     <p>
       <strong>Pickup Address:</strong>
-      <%= @pickup_request.pickup_address.titleize %>
+      <%= @pickup_request.partial_pickup_address %><br>
+      <%= google_map_image(@pickup_request) %><br>
     </p>
 
     <p>
@@ -39,9 +40,7 @@
     </p>
   </div>
 </div>
-
-<%#= google_map_image_tag_partial(@pickup_request.delivery_address) %>
-    <%#= render 'charge_form', pickup_request: @pickup_request, user: current_user %><br>
+<br>
 
 <% if !@same_user && !@pickup_accepted %>
     <div class="btn">
@@ -53,12 +52,12 @@
 
   <% elsif @same_user && !@pickup_accepted %>
     <div class="btn" id="destroy">
-      <%= link_to 'Delete Request', pickup_request_path, method: :delete %>
+      <%= link_to 'Delete Request', pickup_request_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 
   <% else @same_user && @pickup_accepted %>
     <div class="btn">
-      <%= link_to 'Reset Request', unaccept_pickup_request_path, method: :delete %>
+      <%= link_to 'Reset Request', unaccept_pickup_request_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 <% end %>
 

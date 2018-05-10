@@ -1,35 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Pickup Requests</h2>
+
 <p>
-<%= form_with scope: :pickup_requests, method: :get, local: true do |f| %>
-  <%= f.label :location %>
-  <%= f.text_field :search %>
-  <%= f.button :search %>
-<% end %>
+    <%= form_with scope: :pickup_requests, method: :get, local: true do |f| %>
+        <%= f.label :location %>
+        <%= f.text_field :search %>
+        <%= f.button :search %>
+    <% end %>
 </p>
+
 <div type="button" class="btn">
     <%= link_to 'Create New Pickup Request', new_pickup_request_path %>
 </div><br><br>
+
 <div class="pickup-requests">
-<% @pickup_requests.each do |pickup| %>
-<br>
-<div class="pickup-card">
-    <%= image_tag pickup.image_url(:medium) unless pickup.image.blank? %><br>
-    <p><strong>Item Name: </strong><%= pickup.item_name %></p>
-    <p><strong>Description: </strong><%= pickup.description %></p>
-    <p><strong>Pickup Address: </strong><%= pickup.pickup_address.titleize %></p>
-    <p><strong>Delivery Address: </strong><%= pickup.delivery_address %></p>
-    <p><strong>Payment: </strong>$<%= pickup.payment_amount %></p>
+    <% @pickup_requests.each do |pickup| %>
+    <br>
+        <div class="pickup-card">
+            <%= image_tag pickup.image_url(:medium) unless pickup.image.blank? %><br>
+            <p><strong>Item Name: </strong><%= pickup.item_name %></p>
+            <p><strong>Description: </strong><%= pickup.description %></p>
+            <p><strong>Pickup Address: </strong><%= pickup.partial_pickup_address %></p>
+            <%= google_map_image(@pickup_request = pickup) %><br>
+            <p><strong>Delivery Address: </strong><%= pickup.delivery_address %></p>
+            <p><strong>Payment: </strong>$<%= pickup.payment_amount %></p>
+            <%= link_to 'View Request', pickup_request_path(pickup) %><br>
+        </div>
 
-    <%= link_to 'View Request', pickup_request_path(pickup) %><br>
-    <% if policy(pickup).edit? %>
-        <%= link_to 'Edit', edit_pickup_request_path(pickup) %><br>
     <% end %>
-    <% if policy(pickup).destroy? %>
-        <%= link_to 'Destroy', pickup_request_path(pickup), method: :delete, data: { confirm: 'Are you sure?' } %><br>
-    <% end %>
-
-</div>
-<% end %><br>
+    <br>
 <div>

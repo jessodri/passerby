@@ -119,7 +119,12 @@ class PickupRequestsController < ApplicationController
       def pickup_request_params
         params.require(:pickup_request).permit([
           :description, 
-          :pickup_address,
+          :city,
+          :state,
+          :postcode,
+          :country_code,
+          :latitude,
+          :longitude,
           :delivery_address,
           :payment_amount,
           :image,

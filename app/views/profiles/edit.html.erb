@@ -1,10 +1,13 @@
 <h2>Edit Profile</h2>
 
-<%= render 'profiles/form' %>
+  <%= render 'profiles/form' %>
 
 <br>
+
   <% if policy(@profile).destroy? %>
-  <div type="button" class="btn" id="destroy">
-      <%= link_to 'Delete Profile', profile_path(@profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
-  </div>
-  <% end %><br>
+    <div type="button" class="btn" id="destroy">
+        <%= link_to 'Delete Profile', profile_path(@profile), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    </div>
+  <% end %>
+  
+<br>
