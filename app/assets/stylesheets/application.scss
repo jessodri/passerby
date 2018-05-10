@@ -42,6 +42,7 @@ html, body {
     color: black;
     justify-content: space-between;
     align-items: center;
+    padding-top: 20px;
     
     .navitem {
         display: flex;
@@ -162,7 +163,7 @@ h2 {
 }
 
   .form {
-    width: 80%;
+    width: 100%;
     margin: auto;
   }
       .field {
@@ -197,3 +198,24 @@ h2 {
     border-color: rgb(240, 63, 63);
 }
 
+
+.search-field {
+    margin: auto;
+    padding: 0px 0px;
+    //   height: 80px;
+    .search-form-field {
+        height: 30px;
+        width: 70%;
+      }
+  }
+
+  .search-flex {
+      margin: auto;
+  }
+
+  .search {
+    width: 70px;  height: 30px;
+    background-color: var(--main-color-three);
+    color: white;
+    font-size: 15px;
+}

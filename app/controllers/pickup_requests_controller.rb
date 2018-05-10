@@ -8,9 +8,9 @@ class PickupRequestsController < ApplicationController
         unless params[:pickup_requests].present?
           @pickup_requests = PickupRequest.all
           else
-          pickup_address = params[:pickup_requests][:search]
+          city = params[:pickup_requests][:search]
           # @products = Product.where(name: product_name)
-          @pickup_requests = PickupRequest.search_by_pickup_address(pickup_address)
+          @pickup_requests = PickupRequest.search_by_city(city)
           end
       end
   

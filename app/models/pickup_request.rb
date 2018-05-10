@@ -20,12 +20,12 @@ class PickupRequest < ApplicationRecord
   after_validation :geocode
 
 
-  def self.search_by_pickup_address(search)
-      where("LOWER(pickup_address) LIKE ?", "%#{search.downcase}%")
+  def self.search_by_city(search)
+      where("LOWER(city) LIKE ?", "%#{search.downcase}%")
   end
 
   def partial_pickup_address
-    "#{city}, #{state}, #{postcode}, #{country_code}"
+    "#{city.titleize}, #{state.titleize}, #{postcode.titleize}, #{country_code}"
   end
 
 end

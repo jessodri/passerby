@@ -2,13 +2,13 @@
 
 <h2>Pickup Requests</h2>
 
-<p>
-    <%= form_with scope: :pickup_requests, method: :get, local: true do |f| %>
-        <%= f.label :location %>
-        <%= f.text_field :search %>
-        <%= f.button :search %>
-    <% end %>
-</p>
+<div class="search-field">
+        <%= form_with scope: :pickup_requests, class: "search-flex", method: :get, local: true do |f| %>
+            <%= f.label :search_by_city %><br>
+            <%= f.text_field :search, class: "search-form-field" %>
+            <%= f.button :Search, class: "search" %>
+        <% end %>
+</div><br>
 
 <div type="button" class="btn">
     <%= link_to 'Create New Pickup Request', new_pickup_request_path %>
