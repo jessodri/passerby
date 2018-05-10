@@ -20,6 +20,8 @@ This results in the person either having to pay expensive delivery fees or buy t
 
 ## The Solution
 
+I have created a platform where users can post the items they need picked up and other users can offer to pick it up and deliver it for the listed payment.
+
 This arrangement benefits both parties as the person receiving the item does not have to travel to pick-up or pay expensive postage. 
 
 The person delivering the item will earn a little extra money but not have to go out of their way.
