@@ -1,4 +1,8 @@
 <h1>You have accepted new request!</h1>
 
+<p>Please visit the below link to view the request details:<br>
+<%= link_to 'View Request', pickup_requests_url(@pickup_request) %>
+</p>
+
 <p><b>from:</b> 
 <%= @user.email %></p>

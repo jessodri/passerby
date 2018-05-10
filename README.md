@@ -159,6 +159,14 @@ For shrine (image uploading):
 
 ### Features
 
+My app included features such as:
+
+- Image uploading for user profiles and pickup requests (Shrine)
+- Static google map displaying the pickup locations for items and also the users location (Geocoder)
+- Users are sent an email when they accept a pickup request (Mailgun)
+- Users can see a list of pickup requests they have posted on their profile. They also see a stripe payment button so they can send the payment for that request (Stripe)
+- Users can only edit their own profiles and pickup requests
+- Users can reset requests and if they decide not to use the person who accepted it
 
 ### Future Development
 

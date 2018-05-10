@@ -53,7 +53,7 @@
           <% else %> 
             <p><% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted</p>
             <p>
-              <strong>Accepted by: </strong><%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request) %>
+              <strong>Accepted by: </strong><%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request.user_to_pickup.user) %>
               <br>
             </p>
             <%= render 'pickup_requests/charge_form', request: request, user: current_user %>
