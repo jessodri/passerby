@@ -1,4 +1,4 @@
-# Rails Project
+# Term 2 Rails Project - Passerby
 
 [Passerby WebApp](https://passerby-app.herokuapp.com/)
 
@@ -10,13 +10,19 @@ For example, if someone travels between the CBD and Pakenham each day for work t
 
 ## The Problem
 
-People often want to buy items that require travelling/pick-up. This can be difficult if the buyer does not have a car and/or time to go get the item.
+People often want to buy items that require travelling/pick-up. This can be difficult if the buyer does not have a car and/or time to go get the item. 
+
+Some examples include items on Gumtree - it might be a great deal but it could be anywhere!
+
+Or perhaps purchasing an item from a Ikea or another large department store. They often charge expensive delivery fees.
 
 This results in the person either having to pay expensive delivery fees or buy the item for a higher price somewhere else. 
 
 ## The Solution
 
-This arrangement benefits both parties as the person receiving the item does not have to travel to pick-up or pay expensive postage. The person delivering the item will earn a little extra money but not have to go out of their way.
+This arrangement benefits both parties as the person receiving the item does not have to travel to pick-up or pay expensive postage. 
+
+The person delivering the item will earn a little extra money but not have to go out of their way.
 
 ## Financial Aspect
 
@@ -138,7 +144,7 @@ My desktop version is very similar to my mobile design and it scales quite well 
 ![desktop first iteration](app/assets/images/desktop2.png)
 
 
-## Coding
+## Development
 
 ### Gems Used
 I used a number of gems during my project including:
@@ -159,6 +165,14 @@ For shrine (image uploading):
 - mini_magick
 - shrine
 
+### Git
+
+I user git for versions control which I found very helpful. There was at least one time where I needed to rollback to a previous commit and I was so happy that I had been commiting regularly because I lost very little work! 
+
+I tried to make new branches for every major feature although I did forget a few times.
+
+Although I did not have any code reviews done through Git/Github, I was assisted by several of my classmates and often assisted them in return. Some of the people who helped me with reviewing parts of my code included Cameo, Drew, Steve and Luke. I received assistence from my teachers as well.
+
 ### Features
 
 My app included features such as:
@@ -170,21 +184,45 @@ My app included features such as:
 - Users can only edit their own profiles and pickup requests
 - Users can reset requests and if they decide not to use the person who accepted it
 
+### Responsiveness
+
+I kept my design as simple as possible and used flexbox for most of my styling. Because of that it is pretty responsive, it might need to be tweaked in a few areas but I was happy with the result.
+
 ### Problems
 
-I had several problems while coding. I did not deploy to Heroku soon enough and when I tried I kept getting an error which turned out to be caused by the shrine uploader and compiled assets files.
+I had several problems while coding. 
 
-I also struggled to implement a messaging system in my app, I knew how to set up a basic system but my app required it to be tied to a specific pickup request. This was very difficult for me to get working properly and I needed quite a bit of help with that.
+- I did not deploy to Heroku soon enough and when I tried I kept getting an error which turned out to be caused by the shrine uploader and compiled assets files.
+
+- I also struggled to implement a messaging system in my app, I knew how to set up a basic system but my app required it to be tied to a specific pickup request. This was very difficult for me to get working properly and I needed quite a bit of help with that.
+
+- I tried to implement a function that Maxi suggested to automatically redirect users to create their profile after they sign-up. Unfortunately it caused some errors and I made it even worse trying to make it work. I ended up rolling back to a previous commit.
 
 ### Future Development
 
 There are so many things that I could do to improve my application that I just did not have time for or do not yet have the skills.
 
 - The conversation/messaging system needs to be improved, it currently doesn't like it if the same 2 users try to converse on a different pickup request.
+
 - Better CSS styling, its pretty basic right now.
+
 - Implement a proper stripe transaction system where one user can transfer money to another.
+
 - Have the profile page show requests that the user has offered to pickup.
-- 
 
+- Allow users to search requests by location radius so they can find requests nearby.
 
+- Allow users to post how urgently they need the pickup completed.
+
+- Place more emphasis on the fact that we encourage people to plan pickups for journeys they make on a regular basis anyway eg. driving to the city for work each day.
+
+### Lessons Learned
+
+- ALWAYS git commit regularly
+
+- Deploy your site as early as possible so you can see where errors are occuring
+
+- Don't spend too long trying to solve one problem, ASK for help
+
+- Think about the user's needs
 
