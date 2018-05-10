@@ -20,7 +20,7 @@
     <p><strong>Description: </strong><%= pickup.description %></p>
     <p><strong>Pickup Address: </strong><%= pickup.pickup_address.titleize %></p>
     <p><strong>Delivery Address: </strong><%= pickup.delivery_address %></p>
-    <p><strong>Payment: </strong>$<%= pickup.price_in_dollars %></p>
+    <p><strong>Payment: </strong>$<%= pickup.payment_amount %></p>
 
     <%= link_to 'View Request', pickup_request_path(pickup) %><br>
     <% if policy(pickup).edit? %>

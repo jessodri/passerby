@@ -78,8 +78,8 @@
         <%#= render 'pickup_requests/charge_form', pickup_request: request, user: current_user %>
       <% end %>
      <br>
-
-     <%= link_to 'View Request', pickup_request_path(request) %><br>
+      <%= link_to "View messages", conversations_path({ :pickup_request_id => @pickup_request}) %>
+      <%= link_to 'View Request', pickup_request_path(request) %><br>
     </div>
     <% end %>
   <% end %>

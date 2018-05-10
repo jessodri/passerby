@@ -27,7 +27,7 @@
 
 <div class="field">
     <%= form.label :payment_amount %>
-    <%= form.number_field :payment_amount, :class => "form-field" %>
+    <%= form.number_field :payment_amount, in: 1.0..200.0, step: 0.05, :class => "form-field" %>
 </div>
 
 <br>

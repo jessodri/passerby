@@ -19,7 +19,8 @@ class PickupRequestsController < ApplicationController
       end
 
       def show
-
+        @same_user = current_user == @pickup_request.user
+        @pickup_accepted = @pickup_request.user_to_pickup.present?
       end
 
       def charge
