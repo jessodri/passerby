@@ -162,14 +162,15 @@ h2 {
 }
 
   .form {
-    width: 90%;
+    width: 80%;
     margin: auto;
   }
       .field {
+          padding: 0px 15px;
           //   height: 80px;
           .form-field {
               height: 30px;
-              width: 90%;
+              width: 100%;
             }
         }
     
