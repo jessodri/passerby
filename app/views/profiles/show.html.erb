@@ -35,35 +35,36 @@
       <%= @profile.partial_address %>
     </p>
 
-    <%= google_map_image_tag(@profile) %><br>
+    <p>
+      <%= google_map_image_tag(@profile) %>
+    </p>
   </div>
 
   <div class="request-info">
     <% if current_user == @profile.user %>
-    <h3>My Pickup Requests </h3>
-    <% @pickup_requests.each do |request|%>
-    <div class="request-info-card">
-        <p><strong>Item Name: </strong><%= request.item_name %></p>
-        <p><strong>Pickup Location:</strong> <%= request.partial_pickup_address %></p>
-      <% if request.user_to_pickup.nil? %>
-        <p><strong>Status:</strong> Not Accepted</p>
-      <% else %> 
-        <p>
-          <% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted 
-        </p>
-        <p>
-          <strong>Accepted by: </strong><%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request) %>
-          <br>
-        </p>
+      <h3>My Pickup Requests </h3>
+      <% @pickup_requests.each do |request|%>
+        <div class="request-info-card">
+          <p><strong>Item Name: </strong><%= request.item_name %></p>
+          <p><strong>Pickup Location:</strong> <%= request.partial_pickup_address %></p>
 
-        <%= render 'pickup_requests/charge_form', request: request, user: current_user %>
-        
+          <% if request.user_to_pickup.nil? %>
+            <p><strong>Status:</strong> Not Accepted</p>
+          <% else %> 
+            <p><% request.user_to_pickup.accepted %><strong>Status:</strong> Accepted</p>
+            <p>
+              <strong>Accepted by: </strong><%= link_to request.user_to_pickup.user.profile.full_name, profile_path(request) %>
+              <br>
+            </p>
+            <%= render 'pickup_requests/charge_form', request: request, user: current_user %>
+          <% end %>
+          <br>
+          <%= link_to "View messages", conversations_path({ :pickup_request_id => @pickup_request}) %>
+          <%= link_to 'View Request', pickup_request_path(request) %><br>
+        </div>
       <% end %>
-     <br>
-      <%= link_to "View messages", conversations_path({ :pickup_request_id => @pickup_request}) %>
-      <%= link_to 'View Request', pickup_request_path(request) %><br>
-    </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
-</div>
+
+

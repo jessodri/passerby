@@ -16,14 +16,36 @@ People often want to buy items that require travelling/pick-up. This can be diff
 
 This arrangement benefits both parties as the person receiving the item does not have to travel to pick-up or pay expensive postage. The person delivering the item will earn a little extra money but not have to go out of their way.
 
-## Installation
+## Financial Aspect
 
-Git clone or download the app then run the following commands:
-* bundle install
-* rails db:create
-* rails db:migrate
-* rails db:seed
-* rails s
+It will be up to the user to post how much they are willing to pay for the pick-up and delivery of their item as it will vary based on distance and size of the item. I will likely post some recommended guidelines on the site.
+
+I will take a percentage from each transaction that happens on the site.
+
+## Installation
+Clone or download the repo
+
+``` git clone git@github.com:jessodri/passerby.git ```
+
+Install gems
+
+```bundle install```
+
+Create ```.env``` file and add environment variables
+
+Create Database
+
+```rails db:create```
+
+Migrate tables
+
+```rails db:migrate```
+
+Start server
+
+```rails server```
+
+Open in your browser and navigate to http://localhost:3000.
 
 ## Planning Process
 
@@ -32,6 +54,14 @@ Git clone or download the app then run the following commands:
 I chose the name Passerby as it suits the idea of people picking up items as they are 'passing by'. I also wanted a name that was short and uncomplicated.
 
 ### Trello Board
+
+[Trello Board](https://trello.com/b/Mac7gHE5)
+
+I user Trello to write my user stories, list possible features and keep track of what I needed to complete as I built my app.
+
+![trello](app/assets/images/trello1.png)
+![trello](app/assets/images/trello2.png)
+
 
 ### User Stories
 
@@ -58,47 +88,49 @@ I chose the name Passerby as it suits the idea of people picking up items as the
 
 ### User Journey
 
+I created a user journey flowchart to help visualize the site layout from the perspective of the user. I helped me to plan an efficient layout for my site.
+
 ![user journey](app/assets/images/user_journey.png)
 
 ### ERD
 
+My database had 6 tables in it, which was a managable number. Any more and I think I would have struggled to keep things organized.
+
 ![erd](app/assets/images/erd.png)
-
-## Financial Aspect
-
-It will be up to the user to post how much they are willing to pay for the pick-up and delivery of their item as it will vary based on distance and size of the item. I will likely post some recommended guidelines on the site.
-
-For now I plan to charge a one-time sign-up fee to use the website. In future, when my skills have advanced I would like to have a business model in which I receive a percentage of each transaction.
 
 ## Design
 
-I wanted to keep my design simple and clean. I chose 3 main colors:
+I wanted to keep my design simple and clean. I chose 4 main colors:
 
 ![colors](app/assets/images/colors.png)
 
-I chose two fonts; Crimson Text for headings and Open Sans for paragraphs.
+I chose two fonts; Crimson Text for headings and Open Sans for paragraphs. I did not spend a lot of time browsing/testing fonts, I picked the first 2 that I liked and went with them!
 
 ![font](app/assets/images/font.png)
 
-For my logo I wanted to incorporate the 'P' and 'B' from Passerby.
+For my logo I wanted to incorporate the 'P' and 'B' from Passerby and came up with the below logo:
 
 ![logo](app/assets/images/passerby-logo.svg)
 
 ### Figma Wireframes
-<https://www.figma.com/file/FvsDpxM6EfvKTNHwqbk1uiAu/Rails-Project?node-id=3%3A0>
+[Figma Design](https://www.figma.com/file/FvsDpxM6EfvKTNHwqbk1uiAu/Rails-Project?node-id=3%3A0)
 
 I started off with a very basic greyscale design to decide on my layout:
+
 ![greyscale](app/assets/images/greyscale-wireframes.png)
 ![greyscale](app/assets/images/greyscale-wireframes2.png)
 
-I experimented with a couple of colors but ultimately I stayed with the blue. I was not happy with my first attempt at designing the landing pages:
+I experimented with a couple of colors but ultimately I stayed with the blue. I was not happy with my first attempts at designing the landing page:
 
 ![mobile first iteration](app/assets/images/first-iteration.png)
 
+I ended up going with the below design as it seemed much cleaner and user friendly:
 
 ![mobile second iteration](app/assets/images/second-iteration.png)
 ![mobile second iteration](app/assets/images/second-iteration2.png)
 ![mobile second iteration](app/assets/images/second-iteration3.png)
+
+My desktop version is very similar to my mobile design and it scales quite well without me having to do too much extra CSS.
 
 ![desktop first iteration](app/assets/images/desktop1.png)
 ![desktop first iteration](app/assets/images/desktop2.png)
@@ -107,8 +139,26 @@ I experimented with a couple of colors but ultimately I stayed with the blue. I 
 ## Coding
 
 ### Gems Used
+I used a number of gems during my project including:
+
+- mailgun-ruby - for sending emails
+- stripe - for transactions
+- devise - for authentication
+- pundit - for authorization
+- country_select - provides country codes
+- geocoder - provide latitude and longitude for addresses
+- aws-sdk-s3 - for AWS S3 storage
+- pry-rails - debugging help
+- dotenv - environment variables
+
+For shrine (image uploading):
+- image_processing - for shrine (image uploading)
+- fastimage
+- mini_magick
+- shrine
 
 ### Features
+
 
 ### Future Development
 
