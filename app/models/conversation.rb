@@ -11,19 +11,8 @@ class Conversation < ApplicationRecord
      where("(conversations.sender_id = ? AND conversations.receiver_id =?) OR (conversations.sender_id = ? AND conversations.receiver_id =?)", sender_id,receiver_id, receiver_id, sender_id)
      end
 
-      # scope :user_conversations, -> (user) do 
-      #   where(receiver: user).or(where(pickup_request: PickupRequest.where(user: user)))
-      # end
+    # scope :user_conversations, -> (user) do 
+    #   where(receiver: user).or(where(pickup_request: PickupRequest.where(user: user)))
+    # end
     
-      # def sender
-      #   self.current_user
-      # end
-
-      # def receiver(current_user)
-      #   self.sender_id == current_user.id ? self.receiver : self.sender
-      # end
-
-      # def unread_message_count(current_user)
-      #   self.messages.where("user_id != ? AND read = ?", current_user.id, false).count
-      # end
   end

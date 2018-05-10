@@ -12,13 +12,15 @@ For example, if someone travels between the CBD and Pakenham each day for work t
 
 People often want to buy items that require travelling/pick-up. This can be difficult if the buyer does not have a car and/or time to go get the item.
 
+This results in the person either having to pay expensive delivery fees or buy the item for a higher price somewhere else. 
+
 ## The Solution
 
 This arrangement benefits both parties as the person receiving the item does not have to travel to pick-up or pay expensive postage. The person delivering the item will earn a little extra money but not have to go out of their way.
 
 ## Financial Aspect
 
-It will be up to the user to post how much they are willing to pay for the pick-up and delivery of their item as it will vary based on distance and size of the item. I will likely post some recommended guidelines on the site.
+It will be up to the user to post how much they are willing to pay for the pick-up and delivery of their item as it will vary based on distance and size of the item.
 
 I will take a percentage from each transaction that happens on the site.
 
@@ -57,7 +59,7 @@ I chose the name Passerby as it suits the idea of people picking up items as the
 
 [Trello Board](https://trello.com/b/Mac7gHE5)
 
-I user Trello to write my user stories, list possible features and keep track of what I needed to complete as I built my app.
+I used Trello to write my user stories, list possible features and keep track of what I needed to complete as I built my app.
 
 ![trello](app/assets/images/trello1.png)
 ![trello](app/assets/images/trello2.png)
@@ -168,9 +170,21 @@ My app included features such as:
 - Users can only edit their own profiles and pickup requests
 - Users can reset requests and if they decide not to use the person who accepted it
 
+### Problems
+
+I had several problems while coding. I did not deploy to Heroku soon enough and when I tried I kept getting an error which turned out to be caused by the shrine uploader and compiled assets files.
+
+I also struggled to implement a messaging system in my app, I knew how to set up a basic system but my app required it to be tied to a specific pickup request. This was very difficult for me to get working properly and I needed quite a bit of help with that.
+
 ### Future Development
 
 There are so many things that I could do to improve my application that I just did not have time for or do not yet have the skills.
 
+- The conversation/messaging system needs to be improved, it currently doesn't like it if the same 2 users try to converse on a different pickup request.
+- Better CSS styling, its pretty basic right now.
+- Implement a proper stripe transaction system where one user can transfer money to another.
+- Have the profile page show requests that the user has offered to pickup.
 - 
-###
+
+
+
